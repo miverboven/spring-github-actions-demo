@@ -30,6 +30,8 @@ jobs:
       run: mvn -f pom.xml clean install
     - name: ls
       run: ls -la
+    - name: ls
+      run: ls -la /target
     - name: Upload Maven build artifact
       uses: actions/upload-artifact@v1
       with:
