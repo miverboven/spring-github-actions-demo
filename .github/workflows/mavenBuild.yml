@@ -15,4 +15,4 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
-      - run: mvn -f spring-github-actions-demo/pom.xml clean compile
+      - run: mvn -f pom.xml clean compile
