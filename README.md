@@ -1,4 +1,4 @@
-#Example of GitHub action implementation for a Spring Boot project (Maven)
+# Example of GitHub action implementation for a Spring Boot project (Maven)
 
 ![Test, Build and Upload artifact](https://github.com/miverboven/spring-github-actions-demo/workflows/Test,%20Build%20and%20Upload%20artifact/badge.svg)
 
