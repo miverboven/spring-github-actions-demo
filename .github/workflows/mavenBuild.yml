@@ -27,4 +27,9 @@ jobs:
       with:
         java-version: 8
     - name: Build and test project
-      run: mvn -f pom.xml clean verify
+      run: mvn -f pom.xml clean install
+    - name: Upload Maven build artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: artifact
+        path: target/spring-github-actions-demo.jar
