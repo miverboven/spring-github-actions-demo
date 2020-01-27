@@ -28,6 +28,8 @@ jobs:
         java-version: 8
     - name: Build and test project
       run: mvn -f pom.xml clean install
+    - name: ls
+      run: ls -la
     - name: Upload Maven build artifact
       uses: actions/upload-artifact@v1
       with:
