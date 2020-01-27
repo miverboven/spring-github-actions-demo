@@ -2,7 +2,7 @@
 
 ![Test, Build and Upload artifact](https://github.com/miverboven/spring-github-actions-demo/workflows/Test,%20Build%20and%20Upload%20artifact/badge.svg)
 
-This is an example where GitHub Actions are used to establish a CI pipline that checks compilation, tests, building and finally upload the .jar-file artifact of a Spring Boot MVC project (Maven) using Thymeleaf.
+This is an example where GitHub Actions are used to establish a CI pipline that checks compilation, tests, building and finally uploads the .jar-file artifact of a Spring Boot MVC project (Maven) using Thymeleaf.
 
 The workflow starts with a compilation job using Java 8 as the only option in a matrix:
 
