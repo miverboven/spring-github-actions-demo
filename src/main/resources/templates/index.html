@@ -6,7 +6,20 @@
 </head>
 <body>
 
-<h1 th:text="'Hello ' + ${person.getGivenName()}">Hello!</h1>
+<form action="/output" method="post">
+    <p>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname">
+    </p>
+    <p>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname">
+    </p>
+
+    <p>
+        <input type="submit" name="submit" value="Submit" >
+    </p>
+</form>
 
 </body>
 </html>
