@@ -19,7 +19,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: test
-    name: Build, package and upload .jar artifact as a release
+    name: Build, package and upload .jar artifact
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 8
@@ -32,7 +32,7 @@ jobs:
       run: ls -la
     - name: Show contents of the target directory
       run: ls -la target
-    - name: Upload Maven build artifact as a release
+    - name: Upload Maven build artifact
       uses: actions/upload-artifact@v1
       with:
         name: artifact
