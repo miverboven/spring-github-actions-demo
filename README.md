@@ -4,12 +4,12 @@
 
 This is an example where GitHub Actions are used to establish a CI/CD pipline that checks compilation, tests, building, uploads the .jar-file artifact and finally does an upload to Heroku of a Spring Boot MVC project (Maven) using Thymeleaf.
 
-The workflow starts with a testing job using Java 8 and 11 as the options in a matrix:
+The combined-pipeline.yml starts with a testing job using Java 8 and 11 as the options in a matrix:
 
 ```yaml
 name: Test, Upload artifact and Deploy to Heroku
 
-on: push
+on: workflow_dispatch
 
 jobs:
   test:
@@ -68,3 +68,5 @@ The last job deploys the application to Heroku.
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           heroku_app_name: ${{secrets.HEROKU_APP}}
 ```
+
+This repository also includes the seperate and simplified versions of these jobs in their seperate files.
