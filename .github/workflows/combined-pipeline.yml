@@ -1,0 +1,50 @@
+name: Test, Upload artifact and Deploy to Heroku
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ 8, 11 ]
+    name: Run unit tests on Java ${{ matrix.java }}
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup java
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - run: mvn -f pom.xml clean test
+  release:
+    runs-on: ubuntu-latest
+    needs: test
+    name: Build, package and upload .jar artifact
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK 8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 8
+    - name: Build and package project
+      run: mvn -f pom.xml clean package
+    - name: Show contents of the current working directory
+      run: ls -la
+    - name: Show contents of a target directory
+      run: ls -la target
+    - name: Upload Maven build artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: artifact
+        path: ./target/spring-github-actions-demo-0.1.jar
+  deploy:
+    runs-on: ubuntu-latest
+    needs: release
+    name: Deploy to Heroku
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          heroku_app_name: ${{secrets.HEROKU_APP}}
