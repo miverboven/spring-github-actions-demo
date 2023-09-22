@@ -2,7 +2,7 @@
 
 ![Test, Upload artifact and Deploy to Heroku](https://github.com/miverboven/spring-github-actions-demo/workflows/Test,%20Upload%20artifact%20and%20Deploy%20to%20Heroku/badge.svg)
 
-This is an example where GitHub Actions are used to establish a CI/CD pipline that checks compilation, tests, building, uploads the .jar-file artifact and finally does an upload to Heroku of a Spring Boot MVC project (Maven) using Thymeleaf.
+This is an example where GitHub Actions are used to establish a CI/CD pipline that checks compilation, tests, building, uploads the .jar-file artifact, and finally does an upload to Heroku of a Spring Boot MVC project (Maven) using Thymeleaf.
 
 The combined-pipeline.yml starts with a testing job using Java 8 and 11 as the options in a matrix:
 
